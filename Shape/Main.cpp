@@ -13,23 +13,27 @@ int main()
 	//sq.Show();
 
 	CRectangle cr(7, 5, "Прямоугольник");
+	CRectangle cr1(555, 333, "Прямоугольник");
+	CRectangle cr2(66, 39, "Прямоугольник");
 	//cr.Show();
 
 	Circle ci(2, 8, "Круг");
 	//ci.Show();
 
 	Elipse el(1, 5 , 8, 9, "Элипс");
+	Elipse el1(8, 13 , 11, 6, "Элипс");
 	//el.Show();
 	cout << "-------------------------" << endl;
+	cout << "Проврка перегрузки оператора <<" << endl;
 	cout << el << endl;
 	cout << "-------------------------" << endl;
 
 	Shape* shapearray[4];
 
 	shapearray[0] = &sq;
-	shapearray[1] = &cr;
-	shapearray[2] = &ci;
-	shapearray[3] = &el;
+	shapearray[1] = &cr1;
+	shapearray[2] = &el1;
+	shapearray[3] = &cr2;
 
 	for (size_t i = 0; i < 4; i++)
 	{
@@ -47,7 +51,7 @@ int main()
 	
 	
 
-	Shape* shapearray1[4];	
+	Shape* shapearray1[8];	
 	
 	fstream fin;
 	string ch;
@@ -80,7 +84,7 @@ int main()
 	{
 		int i = 0;
 
-		while (i != 4)
+		while (i != 8)
 
 		{
 			fin >> ch;
@@ -117,14 +121,14 @@ int main()
 		fin.close();
 	}
 
-	for (size_t i = 0; i < 4; i++)
+	for (size_t i = 0; i < 8; i++)
 	{
 		shapearray1[i]->Load(i);
 	}
 	cout << endl;
 	cout << endl;
 
-	for (size_t i = 0; i < 4; i++)
+	for (size_t i = 0; i < 8; i++)
 	{
 		shapearray1[i]->Show();
 		cout << endl;
