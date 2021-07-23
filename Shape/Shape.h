@@ -67,7 +67,6 @@ public:
 
 	Circle& operator =(const Circle& obj);
 
-
 	void Show() override;
 	void Save() override;
 	void Load(int index) override;
@@ -259,9 +258,7 @@ inline void Square::Load(int index)
 			}
 			getline(fin, ch);//считывает одну строку файла
 			
-		} while (i != index);
-		
-		
+		} while (i != index);		
 	}
 
 	fin.close();
