@@ -22,6 +22,8 @@ public:
 	virtual void Save() = 0;
 	virtual void Load(int index) = 0;
 
+	virtual ~Shape() { cout << "Вызвался деструктор Shape" << endl; }
+
 	//перегузка оператора вывода
 	friend ostream& operator << (ostream& out, const Shape& obj);
 	friend istream& operator >> (istream& in, Shape& obj);
@@ -46,14 +48,14 @@ public:
 	void Save() override;
 	void Load(int index) override;
 
+	~Square() override;
+
 	//перегузка оператора вывода
 	friend ostream& operator << (ostream& out, const Square& obj);
 private:
 	int a;
 	int b;
 };
-
-
 
 class Circle : public virtual Shape
 {
@@ -70,6 +72,8 @@ public:
 	void Show() override;
 	void Save() override;
 	void Load(int index) override;
+
+	~Circle() override;
 	//перегузка оператора вывода
 	friend ostream& operator << (ostream& out, const Circle& obj);
 
@@ -94,6 +98,11 @@ public:
 
 	void Save() override;
 	void Load(int index) override;
+
+	~CRectangle()
+	{
+		cout << "Вызвался деструктор CRectangle" << endl;
+	}
 	//перегузка оператора вывода
 	friend ostream& operator << (ostream& out, const CRectangle& obj);
 
@@ -119,6 +128,10 @@ public:
 	void Save() override;
 	void Load(int index) override;
 
+	~Elipse()
+	{
+		cout << "Вызвался деструктор Elipse" << endl;
+	}
 	friend ostream& operator << (ostream& out, const Elipse& obj);
 
 private:
@@ -315,6 +328,8 @@ inline void Circle::Load(int index)
 	fin.close();
 }
 
+
+
 inline void CRectangle::Save()
 {
 	string fName = "myFile.txt";
@@ -455,4 +470,15 @@ inline istream& operator>>(istream& in, Shape& obj)
 {
 	in >> obj.name;
 	return in;
+}
+
+
+inline Square::~Square()
+{
+	cout << "Вызвался деструктор Square" << endl;;
+}
+
+inline Circle::~Circle()
+{
+	cout << "Вызвался деструктор Circle " << endl;;
 }

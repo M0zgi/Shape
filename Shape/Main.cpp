@@ -134,6 +134,11 @@ int main()
 		cout << endl;
 	}	
 
+	/*for (size_t i = 0; i < 8; i++)
+	{
+		delete[] shapearray1;
+	}*/
+
 	cout << endl;
 	system("pause");
 }
