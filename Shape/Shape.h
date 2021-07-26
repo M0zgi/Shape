@@ -22,7 +22,7 @@ public:
 	virtual void Save() = 0;
 	virtual void Load(int index) = 0;
 
-	virtual ~Shape() { cout << "Вызвался деструктор Shape" << endl; }
+	virtual ~Shape() = 0;
 
 	//перегузка оператора вывода
 	friend ostream& operator << (ostream& out, const Shape& obj);
@@ -30,7 +30,12 @@ public:
 
 protected:
 	string name;
-};
+}; 
+
+Shape::~Shape()
+{
+	//cout << "Вызвался деструктор Shape" << endl;
+}
 
 class Square: public Shape
 {
