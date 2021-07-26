@@ -34,7 +34,7 @@ protected:
 
 Shape::~Shape()
 {
-	//cout << "Вызвался деструктор Shape" << endl;
+	cout << "Вызвался деструктор Shape" << endl;
 }
 
 class Square: public Shape
